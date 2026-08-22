@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bfxbpueurwxik"]
+
+[ext_resource type="Script" uid="uid://b7hte1f17esqv" path="res://Scripts/cpu.gd" id="1_xwqh3"]
+[ext_resource type="Script" uid="uid://davfssii0swva" path="res://Scripts/MovementComponent.gd" id="2_dopw7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf5kd"]
+size = Vector2(15, 231)
+
+[node name="CPU" type="CharacterBody2D" unique_id=1898909906]
+script = ExtResource("1_xwqh3")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1620387766]
+offset_right = 15.0
+offset_bottom = 231.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=266478879]
+position = Vector2(7.5, 115.5)
+shape = SubResource("RectangleShape2D_pf5kd")
+
+[node name="MovementComponent" type="Node" parent="." unique_id=400502167 node_paths=PackedStringArray("body")]
+unique_name_in_owner = true
+script = ExtResource("2_dopw7")
+body = NodePath("..")
+speed = 600.0
+metadata/_custom_type_script = "uid://davfssii0swva"

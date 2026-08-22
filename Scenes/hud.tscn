@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bmed41fkbopnt"]
+
+[ext_resource type="Script" uid="uid://b0brhoy03ctsb" path="res://Scripts/hud.gd" id="1_e0onf"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1577417116]
+script = ExtResource("1_e0onf")
+
+[node name="PScore" type="Label" parent="." unique_id=777480629]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_right = -130.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="CPUScore" type="Label" parent="." unique_id=598386739]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 130.0
+offset_right = 170.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "0"
+
+[node name="GameOver" type="Label" parent="." unique_id=1663935519]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = -44.0
+offset_right = 174.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1

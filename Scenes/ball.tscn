@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bkgsgplmdrdk4"]
+
+[ext_resource type="Script" uid="uid://pxat0lyce4hb" path="res://Scripts/ball.gd" id="1_d60mj"]
+[ext_resource type="AudioStream" uid="uid://bthsg4xutmee8" path="res://Assets/paddle_hit.mp3" id="2_376qj"]
+[ext_resource type="AudioStream" uid="uid://xitxx5omr2kw" path="res://Assets/wall_hit.mp3" id="3_yk4cr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vmxf4"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 8.5
+color = Color(1, 0.91764706, 0, 0.6627451)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmxf4"]
+
+[node name="Ball" type="CharacterBody2D" unique_id=1083433491]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_d60mj")
+speed = 1000.0
+acceleration = 100.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1142389338]
+position = Vector2(10, 10)
+process_material = SubResource("ParticleProcessMaterial_vmxf4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=797247602]
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1167714026]
+position = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_vmxf4")
+
+[node name="PaddleHit" type="AudioStreamPlayer2D" parent="." unique_id=2053324277]
+stream = ExtResource("2_376qj")
+bus = &"SFX"
+
+[node name="WallHit" type="AudioStreamPlayer2D" parent="." unique_id=648007878]
+stream = ExtResource("3_yk4cr")
+bus = &"SFX"

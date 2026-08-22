@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://qet1tfjqc86l"]
+
+[ext_resource type="Script" uid="uid://d1gqwdm08kvtp" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://vmnlxipe7uad" path="res://Scripts/InputComponent.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://davfssii0swva" path="res://Scripts/MovementComponent.gd" id="3_6t5aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmxf4"]
+size = Vector2(15, 231)
+
+[node name="Player" type="CharacterBody2D" unique_id=1884418985]
+script = ExtResource("1_cvnsp")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1949339467]
+offset_right = 15.0
+offset_bottom = 231.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1434204903]
+position = Vector2(7.5, 115.5)
+shape = SubResource("RectangleShape2D_vmxf4")
+
+[node name="InputComponent" type="Node" parent="." unique_id=1992406853]
+unique_name_in_owner = true
+script = ExtResource("1_v0iea")
+up = "up_p1"
+down = "down_p1"
+metadata/_custom_type_script = "uid://vmnlxipe7uad"
+
+[node name="MovementComponent" type="Node" parent="." unique_id=155123409 node_paths=PackedStringArray("body")]
+unique_name_in_owner = true
+script = ExtResource("3_6t5aa")
+body = NodePath("..")
+speed = 600.0
