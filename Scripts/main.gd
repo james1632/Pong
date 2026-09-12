@@ -42,6 +42,7 @@ func new_ball(body: Node2D = null) -> void:
 	var ball: CharacterBody2D = ball_scene.instantiate()
 	ball.position = ball_start
 	add_child(ball)
+	ball.camera = $Camera2D
 
 func game_over(score: int, winner: String, is_player_won: bool) -> void:
 	

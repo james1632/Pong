@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://uv6342mrrvx2"]
 
 [ext_resource type="Script" uid="uid://dhkfvsy0xqrk4" path="res://Scripts/main.gd" id="1_041vy"]
+[ext_resource type="Script" uid="uid://dqbe7qdqhpbe" path="res://Scripts/camera_shake.gd" id="2_rm00k"]
 [ext_resource type="PackedScene" uid="uid://qet1tfjqc86l" path="res://Scenes/player.tscn" id="2_wwoni"]
 [ext_resource type="PackedScene" uid="uid://c12nrkjt8ylh8" path="res://Scenes/player2.tscn" id="3_wwoni"]
 [ext_resource type="PackedScene" uid="uid://bmed41fkbopnt" path="res://Scenes/hud.tscn" id="4_hj3bt"]
@@ -20,9 +21,15 @@ size = Vector2(1279, 47)
 [node name="PvP" type="Node2D" unique_id=1524233823]
 script = ExtResource("1_041vy")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=380403739]
+script = ExtResource("2_rm00k")
+max_shake = 6.0
+
 [node name="Background" type="ColorRect" parent="." unique_id=889158907]
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_left = -101.0
+offset_top = -62.0
+offset_right = 1381.0
+offset_bottom = 775.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 

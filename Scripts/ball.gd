@@ -8,6 +8,7 @@ const MAX_SPEED: float = 2700
 
 @onready var direction :Vector2 = Vector2.LEFT.rotated(randf_range(-0.5, 0.5)).normalized()
 
+var camera: Camera2D
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * speed
@@ -21,8 +22,13 @@ func _physics_process(delta: float) -> void:
 			if speed <= MAX_SPEED:
 				speed += acceleration
 			direction = new_direction(collider)
+			if collider is Player:
+				hit_particles.process_material.color = Color(1.0, 0.173, 0.125, 0.784)
+			else:
+				hit_particles.process_material.color = Color(0.303, 0.365, 0.971, 0.867)
 			hit_particles.global_position = collision.get_position()
 			hit_particles.restart()
+			camera.trigger_shake()
 			$PaddleHit.play()
 		else:
 			direction = direction.bounce(collision.get_normal())
