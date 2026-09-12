@@ -4,6 +4,7 @@ class_name CPU extends CharacterBody2D
 
 @onready var p_height: float = $ColorRect.size.y
 @onready var screen_size: Vector2 = get_viewport_rect().size
+@onready var fixed_x: float = position.x
 
 var distance: float
 
@@ -27,7 +28,5 @@ func _physics_process(delta: float) -> void:
 	
 	movement_component.tick()
 	
-	position = position.clamp(
-		Vector2.ZERO,
-		Vector2(position.x, screen_size.y - p_height)
-	)
+	position.y = clamp(position.y, 0, screen_size.y - p_height)
+	position.x = fixed_x

@@ -4,24 +4,53 @@
 [ext_resource type="AudioStream" uid="uid://bthsg4xutmee8" path="res://Assets/paddle_hit.mp3" id="2_376qj"]
 [ext_resource type="AudioStream" uid="uid://xitxx5omr2kw" path="res://Assets/wall_hit.mp3" id="3_yk4cr"]
 
+[sub_resource type="Gradient" id="Gradient_yk4cr"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_376qj"]
+gradient = SubResource("Gradient_yk4cr")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vmxf4"]
 particle_flag_disable_z = true
 gravity = Vector3(0, 98, 0)
 scale_min = 5.0
 scale_max = 8.5
 color = Color(1, 0.91764706, 0, 0.6627451)
+color_ramp = SubResource("GradientTexture1D_376qj")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmxf4"]
+
+[sub_resource type="Gradient" id="Gradient_376qj"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aw2wy"]
+gradient = SubResource("Gradient_376qj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_376qj"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 33.84
+angle_min = 208.20001
+angle_max = 208.20001
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 89.159996
+radial_accel_max = 89.159996
+scale_min = 5.0
+scale_max = 8.0
+color = Color(1, 0.17254902, 0.1254902, 0.78431374)
+color_ramp = SubResource("GradientTexture1D_aw2wy")
 
 [node name="Ball" type="CharacterBody2D" unique_id=1083433491]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_d60mj")
 speed = 1000.0
-acceleration = 100.0
+acceleration = 50.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1142389338]
 position = Vector2(10, 10)
+lifetime = 0.5
+speed_scale = 1.6
 process_material = SubResource("ParticleProcessMaterial_vmxf4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=797247602]
@@ -40,3 +69,13 @@ bus = &"SFX"
 [node name="WallHit" type="AudioStreamPlayer2D" parent="." unique_id=648007878]
 stream = ExtResource("3_yk4cr")
 bus = &"SFX"
+
+[node name="HitParticles" type="GPUParticles2D" parent="." unique_id=860058268]
+unique_name_in_owner = true
+emitting = false
+lifetime = 2.5999999999999996
+one_shot = true
+speed_scale = 4.0
+explosiveness = 0.5
+randomness = 0.35
+process_material = SubResource("ParticleProcessMaterial_376qj")

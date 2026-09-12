@@ -35,13 +35,13 @@ metadata/_edit_lock_ = true
 [node name="Player" parent="." unique_id=825267807 instance=ExtResource("1_jjgbg")]
 unique_name_in_owner = true
 position = Vector2(50, 220)
-collision_mask = 4
+collision_mask = 6
 metadata/_edit_lock_ = true
 
 [node name="CPU" parent="." unique_id=243287837 instance=ExtResource("3_8gbba")]
 unique_name_in_owner = true
 position = Vector2(1230, 220)
-collision_mask = 4
+collision_mask = 6
 metadata/_edit_lock_ = true
 
 [node name="PWin" type="Area2D" parent="." unique_id=858217757]

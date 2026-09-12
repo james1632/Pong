@@ -4,6 +4,7 @@ const MAX_SPEED: float = 2700
 
 @export var speed: float
 @export var acceleration: float
+@onready var hit_particles: GPUParticles2D = %HitParticles
 
 @onready var direction :Vector2 = Vector2.LEFT.rotated(randf_range(-0.5, 0.5)).normalized()
 
@@ -20,11 +21,12 @@ func _physics_process(delta: float) -> void:
 			if speed <= MAX_SPEED:
 				speed += acceleration
 			direction = new_direction(collider)
+			hit_particles.global_position = collision.get_position()
+			hit_particles.restart()
 			$PaddleHit.play()
 		else:
 			direction = direction.bounce(collision.get_normal())
 			$WallHit.play()
-	print(speed, velocity)
 
 func new_direction(collider: Node2D) -> Vector2:
 	var ball_y: float = position.y

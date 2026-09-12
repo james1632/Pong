@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmxf4"]
 size = Vector2(15, 231)
 
-[node name="Player" type="CharacterBody2D" unique_id=1884418985]
+[node name="Player2" type="CharacterBody2D" unique_id=1884418985]
 script = ExtResource("1_udwdc")
 metadata/_edit_group_ = true
 

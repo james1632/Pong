@@ -9,5 +9,6 @@ func tick() -> void:
 	if body == null:
 		return
 	
+	body.velocity.x = 0
 	body.velocity.y = direction * speed
 	body.move_and_slide()

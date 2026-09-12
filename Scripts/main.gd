@@ -10,7 +10,6 @@ var score_p: int
 var score_cpu: int
 
 func _ready() -> void:
-	print(ball_start)
 	new_game()
 
 func new_game() -> void:
