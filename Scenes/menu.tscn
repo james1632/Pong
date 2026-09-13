@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://c8fdx0rphmrdf" path="res://Scripts/menu.gd" id="1_1rerr"]
 [ext_resource type="Theme" uid="uid://bmm881dgxapwt" path="res://Assets/button.tres" id="2_xhh6f"]
 [ext_resource type="Script" uid="uid://cn7ypt3ra4eqe" path="res://Scripts/sound_volume.gd" id="3_cayip"]
-[ext_resource type="Script" uid="uid://j3218vjxgp0a" path="res://Scripts/max_score_selected_label.gd" id="3_jsrd8"]
-[ext_resource type="Script" uid="uid://o7t4mibr2rhc" path="res://Scripts/max_score.gd" id="3_wwsa2"]
 [ext_resource type="AudioStream" uid="uid://bthsg4xutmee8" path="res://Assets/paddle_hit.mp3" id="4_158mb"]
 
 [node name="Menu" type="Control" unique_id=285562884]
@@ -42,6 +40,44 @@ text = "Pong  "
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Play" type="Button" parent="CanvasLayer/GameLabel" unique_id=1291471035]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.31201
+offset_top = 126.5
+offset_right = 220.31299
+offset_bottom = 234.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_xhh6f")
+theme_override_font_sizes/font_size = 50
+text = "Agains AI"
+
+[node name="PvP" type="Button" parent="CanvasLayer/GameLabel" unique_id=2005114043]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.31201
+offset_top = 223.0
+offset_right = 220.31299
+offset_bottom = 331.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_xhh6f")
+theme_override_font_sizes/font_size = 50
+text = "2 Players"
+
 [node name="SFX2" type="Label" parent="CanvasLayer" unique_id=642716646]
 anchors_preset = 5
 anchor_left = 0.5
@@ -55,6 +91,17 @@ theme_override_font_sizes/font_size = 40
 text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SFX" type="HSlider" parent="CanvasLayer/SFX2" unique_id=580783238]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 48.0
+offset_right = 576.0
+offset_bottom = 64.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_cayip")
+bus_name = "SFX"
 
 [node name="Music2" type="Label" parent="CanvasLayer" unique_id=386207083]
 anchors_preset = 5
@@ -70,175 +117,40 @@ text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Play" type="Button" parent="CanvasLayer" unique_id=1291471035]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -220.31201
-offset_top = -94.0
-offset_right = 220.31299
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 50
-text = "Agains AI"
-
-[node name="PvP" type="Button" parent="CanvasLayer" unique_id=2005114043]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -220.31201
-offset_top = -268.0
-offset_right = 220.31299
-offset_bottom = -160.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 50
-text = "2 Players"
-
-[node name="MaxScoreLabel" type="Label" parent="CanvasLayer" unique_id=169413951]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 360.0
-offset_top = 104.0
-offset_right = 696.0
-offset_bottom = 192.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-text = "Max Score:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MaxScoreSelectedLabel" type="Label" parent="CanvasLayer" unique_id=2012727818]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 328.0
-offset_top = 576.0
-offset_right = 635.0
-offset_bottom = 640.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
-text = "Max Score Selected:"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("3_jsrd8")
-
-[node name="MaxScore" type="Button" parent="CanvasLayer" unique_id=312109673]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 440.0
-offset_top = -536.0
-offset_right = 603.0
-offset_bottom = -452.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 50
-text = "1"
-script = ExtResource("3_wwsa2")
-
-[node name="MaxScore5" type="Button" parent="CanvasLayer" unique_id=2084582475]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 440.0
-offset_top = -436.0
-offset_right = 603.0
-offset_bottom = -352.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 50
-text = "5"
-script = ExtResource("3_wwsa2")
-
-[node name="MaxScore10" type="Button" parent="CanvasLayer" unique_id=1787290116]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 440.0
-offset_top = -336.0
-offset_right = 603.0
-offset_bottom = -252.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 50
-text = "10"
-script = ExtResource("3_wwsa2")
-
-[node name="MaxScore15" type="Button" parent="CanvasLayer" unique_id=1968301159]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 440.0
-offset_top = -236.0
-offset_right = 603.0
-offset_bottom = -152.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme = ExtResource("2_xhh6f")
-theme_override_font_sizes/font_size = 50
-text = "15"
-script = ExtResource("3_wwsa2")
-
-[node name="Music" type="HSlider" parent="CanvasLayer" unique_id=1159084719]
-offset_left = 32.0
-offset_top = 608.0
-offset_right = 616.0
-offset_bottom = 624.0
+[node name="Music" type="HSlider" parent="CanvasLayer/Music2" unique_id=1159084719]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 600.0
+offset_bottom = 80.0
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_cayip")
 bus_name = "Music"
 
-[node name="SFX" type="HSlider" parent="CanvasLayer" unique_id=580783238]
-offset_left = 32.0
-offset_top = 688.0
-offset_right = 616.0
-offset_bottom = 704.0
-max_value = 1.0
-step = 0.001
-script = ExtResource("3_cayip")
-bus_name = "SFX"
+[node name="Options" type="Button" parent="CanvasLayer" unique_id=312109673]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 459.0
+offset_top = -96.0
+offset_right = 622.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_xhh6f")
+theme_override_font_sizes/font_size = 40
+text = "Options"
 
 [node name="SoundTest" type="AudioStreamPlayer2D" parent="." unique_id=1766853316]
 unique_name_in_owner = true
 stream = ExtResource("4_158mb")
 bus = &"SFX"
 
-[connection signal="pressed" from="CanvasLayer/Play" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/PvP" to="." method="_on_pv_p_pressed"]
-[connection signal="pressed" from="CanvasLayer/MaxScore" to="CanvasLayer/MaxScore" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/MaxScore5" to="CanvasLayer/MaxScore5" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/MaxScore10" to="CanvasLayer/MaxScore10" method="_on_pressed"]
-[connection signal="pressed" from="CanvasLayer/MaxScore15" to="CanvasLayer/MaxScore15" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameLabel/Play" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameLabel/PvP" to="." method="_on_pv_p_pressed"]
+[connection signal="pressed" from="CanvasLayer/Options" to="." method="_on_options_pressed"]

@@ -6,3 +6,7 @@ func _on_button_pressed() -> void:
 
 func _on_pv_p_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/agains_player.tscn")
+
+
+func _on_options_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/options.tscn")

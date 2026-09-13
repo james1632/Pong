@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bewg66ii788ta"]
+
+[ext_resource type="Script" uid="uid://cenq7j1jciafb" path="res://Scripts/options.gd" id="1_prnvy"]
+[ext_resource type="Theme" uid="uid://bmm881dgxapwt" path="res://Assets/button.tres" id="2_4tmxy"]
+
+[sub_resource type="FontFile" id="FontFile_4tmxy"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_4tmxy"]
+default_font = SubResource("FontFile_4tmxy")
+default_font_size = 32
+
+[node name="Options" type="Control" unique_id=1240176382]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_prnvy")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1766273955]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1296209062]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer" unique_id=77974226]
+offset_left = 72.0
+offset_top = 106.0
+offset_right = 375.0
+offset_bottom = 159.0
+theme = SubResource("Theme_4tmxy")
+min_value = 1.0
+value = 10.0
+prefix = "Score to Win: "
+
+[node name="Options" type="Button" parent="CanvasLayer" unique_id=1450763859]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 459.0
+offset_top = -96.0
+offset_right = 622.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_4tmxy")
+theme_override_font_sizes/font_size = 40
+text = "Back"
+
+[connection signal="value_changed" from="CanvasLayer/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Options" to="." method="_on_options_pressed"]
