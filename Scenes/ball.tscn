@@ -44,7 +44,7 @@ color_ramp = SubResource("GradientTexture1D_aw2wy")
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_d60mj")
-speed = 800.0
+speed = 500.0
 acceleration = 50.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1142389338]
